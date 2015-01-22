@@ -49,6 +49,12 @@ body {
 	text-decoration:none;
 }
 
+.navbar-nav > li > a.navbar-link:focus {
+	color:rgb(49, 49, 192);
+	background-color:white;
+	text-decoration:none;
+}
+
 .username {
 	padding-right:15px;
 }
