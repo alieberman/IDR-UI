@@ -1,0 +1,76 @@
+<div class="bd">
+	<div class="row">
+		<div class="col-md-12 pg-hd">
+		  IDR Feeds
+		</div><!--/col-md-12 pg-hd-->
+	</div><!--/row-->
+	<div class="row">
+		<div class="col-md-9">
+			<button class="btn btn-refresh" ng-click="refresh()">Refresh</button>
+		</div>
+		<div class="col-md-3">
+				<select class="select-box" ng-model="feedStatus" ng-change="filterFeeds()">
+					<option>All Feeds</option>
+					<option>Started Feeds</option>
+					<option>Complete Feeds</option>
+					<option>Error Feeds</option>
+				</select>
+			<span class="dropdown">View: </span>
+		</div>
+	</div>
+	<div class="row content-row">
+		<form name="datepickerForm" class="form-inline" role="form">
+		  <!-- Date range example -->
+		  <div class="form-group col-md-12">
+		    <label class="control-label date-label">Date Range</label><br>
+		    <div class="form-group col-xs-3">
+		      <input type="text" class="form-control" ng-model="fromDate" data-date-format="yyyy-MM-dd" data-min-date="2010-12-31" data-max-date="{{untilDate}}" placeholder="From" bs-datepicker>
+		    </div>
+		    <div class="form-group col-xs-3">
+		      <input type="text" class="form-control" ng-model="untilDate" data-date-format="yyyy-MM-dd" data-min-date="{{fromDate}}" data-max-date="2222-12-31" placeholder="Until" bs-datepicker>
+		    </div>
+			<div class="form-group col-xs-4">
+		    </div>
+			<div class="form-group col-xs-2">
+		      <input type="text" class="form-control" ng-model="search" placeholder="Search">
+		    </div>
+		  </div>
+		</form>
+	</div><!--/row content-row-->
+	<div class="row content-row">
+		<div class="col-md-12">
+		<table class="table table-striped table-bordered table-enrollment table-hover">
+		  <thead>
+		    <th>Feed Name <button class="{{oldestQueueClass}} table-btn" ng-click="sort('FeedName')"></button></th>
+			<th>Feed Type <button class="{{oldestQueueClass}} table-btn" ng-click="sort('Feed_Type')"></button></th>
+			<th>Feed Start <button class="{{oldestQueueClass}} table-btn" ng-click="sort('Feed_Start')"></button></th>
+			<th>Feed Stop <button class="{{oldestQueueClass}} table-btn" ng-click="sort('Feed_Stop')"></button></th>
+			<th>Feed Run Time <button class="{{oldestQueueClass}} table-btn" ng-click="sort('Feed_Run_Time')"></button></th>
+			<th>Query Count <button class="{{oldestQueueClass}} table-btn" ng-click="sort('Query_Count')"></button></th>
+			<th>Identical Count <button class="{{oldestQueueClass}} table-btn" ng-click="sort('Identical_Count')"></button></th>
+			<th>New Count <button class="{{oldestQueueClass}} table-btn" ng-click="sort('New_Count')"></button></th>
+			<th>Update Count <button class="{{oldestQueueClass}} table-btn" ng-click="sort('Update_Count')"></button></th>
+			<th>Delete Count <button class="{{oldestQueueClass}} table-btn" ng-click="sort('Delete_Count')"></button></th>
+			<th>Feed Status <button class="{{oldestQueueClass}} table-btn" ng-click="sort('Feed_Status')"></button></th>
+			<th>Feed Status Message <button class="{{oldestQueueClass}} table-btn" ng-click="sort('Feed_Status_Message')"></button></th>
+		  </thead>
+		  <tbody>
+			<tr ng-repeat="feeds in feedList | filter:search | orderBy:sortOrder" ng-click="feedShow(feeds.Feed_ID)">
+		      <td>{{feeds.FeedName}}</td>
+			  <td>{{feeds.Feed_Type}}</td>
+			  <td>{{feeds.Feed_Start}}</td>
+			  <td>{{feeds.Feed_Stop}}</td>
+			  <td>{{feeds.Feed_Run_Time}}</td>
+			  <td>{{feeds.Query_Count}}</td>
+			  <td>{{feeds.Identical_Count}}</td>
+			  <td>{{feeds.New_Count}}</td>
+			  <td>{{feeds.Update_Count}}</td>
+			  <td>{{feeds.Delete_Count}}</td>
+			  <td>{{feeds.Feed_Status}}</td>
+			  <td>{{feeds.Feed_Status_Message}}</td>
+			</tr>
+		  </tbody>
+		</table>
+		</div><!--/col-md-12-->
+	</div><!--/row-->
+</div><!--/bd-->

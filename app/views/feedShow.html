@@ -1,0 +1,82 @@
+<div class="bd">
+	<div class="row">
+		<div class="col-md-12 pg-hd">
+		  ESB IDR Database Manager
+		</div><!--/col-md-12 pg-hd-->
+	</div><!--/row-->
+	<div class="row">
+		<div class="col-md-9 pg-sub-hd">
+			Feed {{feedStats._ID}} Details
+		</div>
+		<div class="col-md-3">
+			<ol class="breadcrumb">
+			  <li><a href="#">Home</a></li>
+			  <li class="active">Feed {{feedStats._ID}} Details</li>
+			</ol>
+		</div>
+	</div><!--/row-->
+	<div class="row content-row">
+		<div class="col-md-9">
+			<button class="btn btn-refresh" ng-click="back()"><i class="glyphicon glyphicon-arrow-left"></i> Back</button>
+		</div>
+	</div><!--/row-->
+	<form name="feedForm" ng-submit="save()" novalidate>
+		<div class="row content-row">
+			<div ng-show="success && feedForm.$pristine" class="alert alert-success" role="alert">
+	          <strong>Successfully Saved!</strong> 
+	        </div>
+			<div ng-show="failure && feedForm.$pristine" class="alert alert-danger" role="alert">
+	          <strong>Failure! Please Try Again.</strong> 
+	        </div>
+			<div class="list-group col-md-6">
+				<div class="list-group-item">
+				    <h4 class="list-group-item-heading">Feed Name</h4>
+				    <input class="list-group-item-text input-edit" placeholder="{{feedStats.Feed_Name}}" ng-model="feedStats.Feed_Name">
+				</div>
+				<div class="list-group-item">
+				    <h4 class="list-group-item-heading">Feed Type</h4>
+				    <input class="list-group-item-text input-edit" placeholder="{{feedStats.Feed_Type}}" ng-model="feedStats.Feed_Type">
+				</div>
+				<div class="list-group-item">
+				    <h4 class="list-group-item-heading">Feed Subtype</h4>
+				    <input class="list-group-item-text input-edit" placeholder="{{feedStats.Feed_Subtype}}" ng-model="feedStats.Feed_Subtype">
+				</div>
+				<div class="list-group-item">
+				    <h4 class="list-group-item-heading">Feed Source</h4>
+				    <input class="list-group-item-text input-edit" placeholder="{{feedStats.Feed_Source}}" ng-model="feedStats.Feed_Source">
+				</div>
+				<div class="list-group-item">
+				    <h4 class="list-group-item-heading">Feed Run Mode</h4>
+				    <input class="list-group-item-text input-edit" placeholder="{{feedStats.Feed_Run_Mode}}" ng-model="feedStats.Feed_Run_Mode">
+				</div>
+			</div><!--/list-group-->
+			<div class="list-group col-md-6">
+				<div class="list-group-item">
+				    <h4 class="list-group-item-heading">Max Threshold Percentage</h4>
+				    <input class="list-group-item-text input-edit" placeholder="{{feedStats.Max_Threshold_Percentage}}" ng-model="feedStats.Max_Threshold_Percentage">
+				</div>
+				<div class="list-group-item">
+				    <h4 class="list-group-item-heading">Max Threshold Record Count</h4>
+				    <input class="list-group-item-text input-edit" placeholder="{{feedStats.Max_Threshold_Record_Count}}" ng-model="feedStats.Max_Threshold_Record_Count">
+				</div>
+				<div class="list-group-item">
+				    <h4 class="list-group-item-heading">Last Run Count</h4>
+				    <input class="list-group-item-text input-edit" placeholder="{{feedStats.Last_Run_Count}}" ng-model="feedStats.Last_Run_Count">
+				</div>
+				<div class="list-group-item">
+				    <h4 class="list-group-item-heading">Last Run DateTime</h4>
+				    <input class="list-group-item-text input-edit" placeholder="{{feedStats.Last_Run_DateTime}}" ng-model="feedStats.Last_Run_DateTime">
+				</div>
+				<div class="list-group-item">
+				    <h4 class="list-group-item-heading">Start Date</h4>
+				    <div class="list-group-item-text no-edit-list-item">{{feedStats._START_DATE}}</div>
+				</div>
+			</div><!--/list-group-->
+		</div><!--/row-->
+		<div class="row">
+			<div class="col-md-12 btn-middle">
+				<button class="btn btn-primary" ng-click="save()">Save</button>
+			</div>
+		</div><!--/row-->
+	</form><!--/form-->
+</div><!--/bd-->
