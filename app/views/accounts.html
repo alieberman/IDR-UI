@@ -67,19 +67,19 @@
 				      <td>{{account.UID}}</td>
 					  <td>{{account.directory}}</td>
 					  <td>{{account.verifiedFlag}}</td>
-					  <td><input name="accounts" type="radio" ng-model="Primary" value="account._GUID"></td>
+					  <td><input name="accounts" type="radio" ng-model="Primary" value="{{account._GUID}}" ng-change="changePrimary({{account}})"></td>
 					</tr>
 					<!--<tr>
 				      <td>best</td>
 					  <td>best</td>
 					  <td>best</td>
-					  <td><input name="accounts" type="radio" ng-model="Primary" value="Primary"></td>
+					  <td><input name="accounts" type="radio" ng-model="Primary" value="Primary" ng-change="changePrimary()"></td>
 					</tr>
 					<tr>
 				      <td>test1</td>
 					  <td>test1</td>
 					  <td>test1</td>
-					  <td><input name="accounts" type="radio" ng-model="Primary" value="Primary1" checked></td>
+					  <td><input name="accounts" type="radio" ng-model="Primary" value="Primary1" ng-change="changePrimary()"></td>
 					</tr>-->
 				  </tbody>
 				</table>

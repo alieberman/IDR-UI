@@ -24,9 +24,13 @@ angular.module('idrApp')
 	};
 	
 	$scope.save = function() {
-		Accounts.update({id:$scope.sapID, _GUID:$scope.$scope.Primary, Pernr:$scope.relationship.Pernr}, function() {
+		Accounts.update({id:$scope.sapID, _GUID:$scope.Primary, Pernr:$scope.relationship.Pernr}, function() {
 			$scope.getAccountInfo();
 		});
+	};
+	
+	$scope.changePrimary = function(newPrimaryAccount) {
+		$scope.Primary = newPrimaryAccount._GUID;
 	};
 	
 	//Sort Table Columns
