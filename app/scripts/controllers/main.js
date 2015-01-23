@@ -74,7 +74,6 @@ angular.module('idrApp')
 	};
 	
 	//Sort Table Columns
-	//Sort Table Columns
 	$scope.reverse = false;
 	$scope.oldestQueueClass = "glyphicon glyphicon-sort";
 	//Order the Feeds by each column
@@ -90,6 +89,4 @@ angular.module('idrApp')
 			}
 	    } 
 	};
-	
-	/*$scope.feedList = [{FeedName:"test", Feed_ID:"2"}];*/
   });

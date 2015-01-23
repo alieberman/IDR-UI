@@ -3,16 +3,16 @@
 angular.module('idrApp')
   .controller('AccountGetCtrl', function ($scope, $resource, $location, $routeParams, Accounts) {
 	
-	/*{"accounts":{"accounts":[{"UID":"HAYDD007","directory":"ED","verifiedFlag":"UNVERIFIED","Primary":null},
-	{"UID":"HAYDD007","directory":"SWNA","verifiedFlag":"UNVERIFIED","Primary":null},
-	{"UID":"HAYDD007","directory":"WDW","verifiedFlag":"UNVERIFIED","Primary":null}]},
-	"relationship":{"Name":"Danielle Hayden","KnownAs":"Danielle","Pernr":"00767911","Status":"ACTIVE","ID":"HAYDD007","Email":null}}*/
-	
 	$scope.show = false;
 	
+	$scope.Primary = '';
+	
 	$scope.getAccountInfo = function() {
-		Accounts.get({SAPID:$scope.sapID}, function(results) {
+		Accounts.get({id:$scope.sapID}, function(results) {
 			$scope.accountList = results.accounts.accounts;
+			if ($scope.accountList[0].Primary != null || $scope.accountList[0].Primary != undefined) {
+				$scope.Primary = $scope.accountList[0].Primary;
+			}
 			$scope.relationship = results.relationship;
 			$scope.show = true;
 		});
@@ -24,9 +24,26 @@ angular.module('idrApp')
 	};
 	
 	$scope.save = function() {
-		Accounts.update({}, function() {
+		Accounts.update({id:$scope.sapID, _GUID:$scope.$scope.Primary, Pernr:$scope.relationship.Pernr}, function() {
 			$scope.getAccountInfo();
 		});
+	};
+	
+	//Sort Table Columns
+	$scope.reverse = false;
+	$scope.sortOrder = 'UID';
+	//Order the Feeds by each column
+	$scope.sort = function(newSortOrder) {
+		$scope.sortOrder = newSortOrder;
+	    if ($scope.sortOrder == newSortOrder) {
+	    $scope.reverse = !$scope.reverse;
+	    $scope.sortOrder = newSortOrder;
+			if ($scope.reverse) {
+			}
+	        else {
+				$scope.sortOrder = ('-' + newSortOrder);
+			}
+	    } 
 	};
 
   });
