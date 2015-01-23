@@ -30,7 +30,7 @@ angular
       })
 	  .when('/accounts', {
         templateUrl: 'views/accounts.html',
-        controller: 'AccountShowCtrl'
+        controller: 'AccountGetCtrl'
       })
       .otherwise({
         redirectTo: '/'

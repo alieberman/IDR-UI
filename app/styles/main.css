@@ -125,6 +125,21 @@ body {
 	text-align:center;
 }
 
+/*Accounts Page*/
+.search-bar {
+	padding-bottom:10px;
+	border-bottom:1px solid black;
+}
+
+.sap-input {
+	margin-left:2%;
+	margin-right:2%;
+}
+
+.id-hd {
+	text-decoration:underline;
+}
+
 
 /* Everything but the jumbotron gets side spacing for mobile first views */
 .header,
