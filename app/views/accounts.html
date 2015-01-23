@@ -24,27 +24,27 @@
 			<div class="row">
 				<h2 class="id-hd">Relationship</h2>
 			</div>
-			<div class="row">
+			<div class="row relationship-font">
 				<label>Name:</label>
 				{{relationship.Name}}
 			</div>
-			<div class="row">
+			<div class="row relationship-font">
 				<label>Known As:</label>
 				{{relationship.KnownAs}}
 			</div>
-			<div class="row">
+			<div class="row relationship-font">
 				<label>Pernr:</label>
 				{{relationship.Pernr}}
 			</div>
-			<div class="row">
+			<div class="row relationship-font">
 				<label>Status:</label>
 				{{relationship.Status}}
 			</div>
-			<div class="row">
+			<div class="row relationship-font">
 				<label>ID:</label>
 				{{relationship.ID}}
 			</div>
-			<div class="row">
+			<div class="row relationship-font">
 				<label>Email:</label>
 				{{relationship.Email}}
 			</div>
@@ -63,7 +63,7 @@
 					<th>Primary</th>
 				  </thead>
 				  <tbody>
-					<tr ng-repeat="account in accountList | filter:search | orderBy:sortOrder">
+					<tr ng-repeat="account in accountList | orderBy:sortOrder">
 				      <td>{{account.UID}}</td>
 					  <td>{{account.directory}}</td>
 					  <td>{{account.verifiedFlag}}</td>

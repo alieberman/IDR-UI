@@ -140,6 +140,10 @@ body {
 	text-decoration:underline;
 }
 
+.relationship-font {
+	font-size:20px;
+}
+
 
 /* Everything but the jumbotron gets side spacing for mobile first views */
 .header,

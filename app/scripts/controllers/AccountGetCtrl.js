@@ -3,7 +3,7 @@
 angular.module('idrApp')
   .controller('AccountGetCtrl', function ($scope, $resource, $location, $routeParams, Accounts) {
 	
-	$scope.show = false;
+	$scope.show = true;
 	
 	$scope.Primary = '';
 	
